@@ -1,6 +1,12 @@
-import { httpServer } from './src/http_server/index';
+import { initWebSocketServer } from './src/be_http_server/index';
+import { httpServer } from './src/fe_http_server/index';
 
-const HTTP_PORT = 8181;
+const BE_HTTP_PORT = 3000;
 
-console.log(`Start static http server on the ${HTTP_PORT} port!`);
-httpServer.listen(HTTP_PORT);
+// const wsServer = initWSServer(BE_HTTP_PORT);
+initWebSocketServer(BE_HTTP_PORT);
+
+const FE_HTTP_PORT = 8181;
+
+console.log(`Start static http server on the ${FE_HTTP_PORT} port!`);
+httpServer.listen(FE_HTTP_PORT);
